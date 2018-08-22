@@ -49,3 +49,9 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+# VS Code
+.vscode/
+
+# This has full paths
+.catkin_tools/profiles/*/packages/*
