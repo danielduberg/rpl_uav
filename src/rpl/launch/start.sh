@@ -80,7 +80,7 @@ trap handler SIGINT SIGTERM
 while [ true ]; do
     # We have to save the PID so therefore we ignore SIGINT and SIGTERM
     trap "" SIGINT SIGTERM
-    roslaunch rpl_launch uav.launch
+    roslaunch rpl uav.launch
     uav_PID=$!
     # Trap in case something does CTRL-C
     trap handler SIGINT SIGTERM

@@ -17,8 +17,8 @@
     <arg name="fcu_url" default="$(arg fcu_device):$(arg fcu_baud)" />
     <arg name="gcs_url" default="udp://@224.0.0.1:14550" />
     <arg name="tgt_component" default="1" />
-    <arg name="px4_config_yaml" default="$(find rpl_launch)/config/$(arg uav)/px4_config.yaml" />
-    <arg name="px4_pluginlists_yaml" default="$(find rpl_launch)/config/$(arg uav)/px4_pluginlists.yaml" />
+    <arg name="px4_config_yaml" default="$(find rpl)/config/$(arg uav)/px4_config.yaml" />
+    <arg name="px4_pluginlists_yaml" default="$(find rpl)/config/$(arg uav)/px4_pluginlists.yaml" />
 
     <node pkg="mavros" type="mavros_node" name="mavros" respawn="true" clear_params="true" output="screen">
         <param name="fcu_url" value="$(arg fcu_url)" />
@@ -29,7 +29,7 @@
         <rosparam command="load" file="$(arg px4_pluginlists_yaml)" />
     </node>
 
-    <param name="robot_description" textfile="$(find rpl_launch)/urdf/$(arg uav).urdf" />
+    <param name="robot_description" textfile="$(find rpl)/urdf/$(arg uav).urdf" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
 </launch>
