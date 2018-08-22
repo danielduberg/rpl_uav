@@ -55,3 +55,8 @@ CATKIN_IGNORE
 
 # This has full paths
 .catkin_tools/profiles/*/packages/*
+
+# These are install through the .rosinstall file
+src/mavros
+src/mavlink
+src/px4
