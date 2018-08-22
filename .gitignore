@@ -60,3 +60,4 @@ CATKIN_IGNORE
 src/mavros
 src/mavlink
 src/px4
+src/test
