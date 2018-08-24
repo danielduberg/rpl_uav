@@ -85,20 +85,20 @@ trap handler SIGINT SIGTERM
 while [ true ]; do
     # We have to save the PID so therefore we ignore SIGINT and SIGTERM
     trap "" SIGINT SIGTERM
-    roslaunch rpl uav.launch
+    roslaunch rpl old_uav.launch
     uav_PID=$!
     # Trap in case something does CTRL-C
     trap handler SIGINT SIGTERM
+
+    if [ -f $HOME/bags/active/flight.bag ]; then
+        echo "File found at:" $HOME/bags/active/flight.bag
+        echo "Move it before flying for it to not be overwritten"
+    fi
 
     # Start the rosbag when we start flying
     wait_flying "True"
 
     echo "Starting ROS record"
-    if [ -f $HOME/bags/active/flight.bag ]; then
-        echo "File found at:" $HOME/bags/active/flight.bag
-        echo "Press CTRL-C within 10 seconds for it to not be overwritten"
-        sleep 10
-    fi
 
     date=`date +"%Y-%m-%d %T"`
     # We have to save the PID so therefore we ignore SIGINT and SIGTERM

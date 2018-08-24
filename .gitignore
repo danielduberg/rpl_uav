@@ -57,6 +57,8 @@ CATKIN_IGNORE
 .catkin_tools/profiles/*/packages/*
 
 # These are install through the .rosinstall file
-src/mavros
-src/mavlink
-src/px4
+src/*
+
+# Do not ignore these
+!src/rpl
+!src/simulation

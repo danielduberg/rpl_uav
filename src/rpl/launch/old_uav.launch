@@ -5,12 +5,15 @@
 
     <arg name="uav" default="$(env USER)" />
     
-    <group if="$(eval uav == 'ribbit')">
+    <arg name="ribbit" default="true" />
+    <arg name="fugu" default="false" />
+    
+    <group if="$(arg ribbit)">
         <arg name="fcu_device" default="/dev/serial/by-id/usb-FTDI_TTL232R-3V3_FT97O9G7-if00-port0" />
         <arg name="tgt_system" default="12" />
     </group>
 
-    <group if="$(eval uav == 'fugu')">
+    <group if="$(arg fugu)">
         <arg name="fcu_device" default="/dev/serial/by-id/usb-FTDI_TTL232R-3V3_FT97OAZ4-if00-port0"/>
         <arg name="tgt_system" default="13" />
     </group>
