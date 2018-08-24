@@ -16,6 +16,7 @@
     <color rgba="0.2 0.2 0.2 1" />
   </material>
 
+<!--
   <link name="fcu">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
@@ -39,7 +40,8 @@
       </material>
     </visual>
   </link>
-  
+-->
+
   <link name="laser_link">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
