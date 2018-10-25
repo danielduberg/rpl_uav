@@ -52,13 +52,3 @@ CATKIN_IGNORE
 
 # VS Code
 .vscode/
-
-# This has full paths
-.catkin_tools/profiles/*/packages/*
-
-# These are install through the .rosinstall file
-src/*
-
-# Do not ignore these
-!src/rpl
-!src/simulation
