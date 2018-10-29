@@ -2,6 +2,9 @@
 
 <launch>
   <arg name="gui" default="true"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  <arg name="paused" default="false"/>
 
   <!--
   <arg name="world" value="worlds/empty.world"/>
@@ -9,14 +12,8 @@
   <arg name="world" default="$(find simulation)/worlds/building.world"/> <!-- planning_project.world"/ -->
   
   <arg name="sdf" default="$(find simulation)/models/uav/uav.sdf"/>
-  
   <arg name="pluginlists_yaml" default="$(find simulation)/config/px4_pluginlists.yaml" />
   <arg name="config_yaml" default="$(find simulation)/config/px4_config.yaml" />
-  
-  
-  <arg name="debug" default="false"/>
-  <arg name="verbose" default="true"/>
-  <arg name="paused" default="false"/>
 	
   <include file="$(find px4)/launch/mavros_posix_sitl.launch">
     <arg name="gui" value="$(arg gui)"/>
