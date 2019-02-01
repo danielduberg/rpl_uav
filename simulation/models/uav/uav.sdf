@@ -51,7 +51,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <link name='/imu_link'>
       <pose frame=''>0 0 0 0 -0 0</pose>
@@ -134,7 +133,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='rotor_0_joint' type='revolute'>
       <child>rotor_0</child>
@@ -200,7 +198,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='rotor_1_joint' type='revolute'>
       <child>rotor_1</child>
@@ -266,7 +263,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='rotor_2_joint' type='revolute'>
       <child>rotor_2</child>
@@ -332,7 +328,6 @@
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
-      <self_collide>0</self_collide>
     </link>
     <joint name='rotor_3_joint' type='revolute'>
       <child>rotor_3</child>
@@ -350,12 +345,12 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <plugin name='rosbag' filename='librotors_gazebo_multirotor_base_plugin.so'>
+    <plugin name='rosbag' filename='libgazebo_multirotor_base_plugin.so'>
       <robotNamespace/>
       <linkName>base_link</linkName>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
-    <plugin name='front_right_motor_model' filename='librotors_gazebo_motor_model.so'>
+    <plugin name='front_right_motor_model' filename='libgazebo_motor_model.so'>
       <robotNamespace/>
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
@@ -372,7 +367,7 @@
       <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
-    <plugin name='back_left_motor_model' filename='librotors_gazebo_motor_model.so'>
+    <plugin name='back_left_motor_model' filename='libgazebo_motor_model.so'>
       <robotNamespace/>
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
@@ -389,7 +384,7 @@
       <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
-    <plugin name='front_left_motor_model' filename='librotors_gazebo_motor_model.so'>
+    <plugin name='front_left_motor_model' filename='libgazebo_motor_model.so'>
       <robotNamespace/>
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
@@ -406,7 +401,7 @@
       <motorSpeedPubTopic>/motor_speed/2</motorSpeedPubTopic>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
-    <plugin name='back_right_motor_model' filename='librotors_gazebo_motor_model.so'>
+    <plugin name='back_right_motor_model' filename='libgazebo_motor_model.so'>
       <robotNamespace/>
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
@@ -425,21 +420,22 @@
     </plugin>
     <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
       <robotNamespace/>
-      <gpsNoise>true</gpsNoise>
+      <gpsNoise>1</gpsNoise>
     </plugin>
-    <plugin name='mavlink_interface' filename='librotors_gazebo_mavlink_interface.so'>
+    <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
       <robotNamespace/>
       <imuSubTopic>/imu</imuSubTopic>
       <gpsSubTopic>/gps</gpsSubTopic>
       <mavlink_addr>INADDR_ANY</mavlink_addr>
       <mavlink_udp_port>14560</mavlink_udp_port>
-      <serialEnabled>false</serialEnabled>
+      <serialEnabled>0</serialEnabled>
       <serialDevice>/dev/ttyACM0</serialDevice>
       <baudRate>921600</baudRate>
       <qgc_addr>INADDR_ANY</qgc_addr>
       <qgc_udp_port>14550</qgc_udp_port>
-      <hil_mode>false</hil_mode>
-      <hil_state_level>false</hil_state_level>
+      <hil_mode>0</hil_mode>
+      <hil_state_level>0</hil_state_level>
+      <vehicle_is_tailsitter>0</vehicle_is_tailsitter>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
       <control_channels>
         <channel name='rotor1'>
@@ -539,18 +535,18 @@
       </control_channels>
     </plugin>
     <static>0</static>
-    <plugin name='rotors_gazebo_imu_plugin' filename='librotors_gazebo_imu_plugin.so'>
+    <plugin name='rotors_gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace/>
       <linkName>/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
-      <gyroscopeNoiseDensity>0.0</gyroscopeNoiseDensity>
-      <gyroscopeRandomWalk>0.0</gyroscopeRandomWalk>
-      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
-      <gyroscopeTurnOnBiasSigma>0.0</gyroscopeTurnOnBiasSigma>
-      <accelerometerNoiseDensity>0.0</accelerometerNoiseDensity>
-      <accelerometerRandomWalk>0.0</accelerometerRandomWalk>
-      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
-      <accelerometerTurnOnBiasSigma>0.0</accelerometerTurnOnBiasSigma>
+      <gyroscopeNoiseDensity>1.0e-05</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>1.0e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1.0e-05</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>1.0e-05</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>1.0e-05</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>1.0e-05</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>1.0e-05</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>1.0e-05</accelerometerTurnOnBiasSigma>
     </plugin>
 	
 	<include>
@@ -563,6 +559,7 @@
 		<parent>base_link</parent>
 	</joint>
 	
+	<!--
 	<include>
 		<uri>model://sonar_up</uri>
 		<pose>-0.05 0 0.22 0 -1.57079633 0</pose>
@@ -592,6 +589,7 @@
 		<child>primesense::primesense_link</child>
 		<parent>base_link</parent>
 	</joint>
+	-->
 	
 	<include>
 		<uri>model://teraranger</uri>
@@ -604,4 +602,3 @@
 	</joint>
   </model>
 </sdf>
-
