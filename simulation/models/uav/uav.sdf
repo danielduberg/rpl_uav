@@ -579,7 +579,8 @@
 		<child>sonar_down::sonar_down_link</child>
 		<parent>base_link</parent>
 	</joint>
-	
+	-->
+  
 	<include>
 		<uri>model://primesense</uri>
 		<pose>0.05 0 0.13 0 0 0</pose>
@@ -589,7 +590,6 @@
 		<child>primesense::primesense_link</child>
 		<parent>base_link</parent>
 	</joint>
-	-->
 	
 	<include>
 		<uri>model://teraranger</uri>
