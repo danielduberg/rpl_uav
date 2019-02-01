@@ -23,7 +23,7 @@
     
     <arg name="world" value="$(arg world)" />
     <arg name="sdf" value="$(arg sdf)" />
-    <!-- <arg name="pluginlists_yaml" value="$(arg pluginlists_yaml)" /> -->
-    <!-- <arg name="config_yaml" value="$(arg config_yaml)" /> -->
+    <arg name="pluginlists_yaml" value="$(arg pluginlists_yaml)" />
+    <arg name="config_yaml" value="$(arg config_yaml)" />
   </include> 
 </launch>
