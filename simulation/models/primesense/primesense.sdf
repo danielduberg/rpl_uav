@@ -27,7 +27,8 @@
 			
       <sensor type="depth" name="primesense">
         <always_on>1</always_on>
-        <visualize>false</visualize>             
+        <visualize>false</visualize>            
+        <update_rate>10.0</update_rate> 
         <camera>
           <horizontal_fov>2.00712864</horizontal_fov>  
           <image>
@@ -53,7 +54,8 @@
           <pointCloudTopicName>depth/points</pointCloudTopicName>
           <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>              
           <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>            
-          <pointCloudCutoff>0.4</pointCloudCutoff>                
+          <pointCloudCutoff>0.4</pointCloudCutoff>      
+          <pointCloudCutoffMax>7.0</pointCloudCutoffMax>          
           <hackBaseline>0.07</hackBaseline>
           <distortionK1>0.0</distortionK1>
           <distortionK2>0.0</distortionK2>
