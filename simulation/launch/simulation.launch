@@ -9,7 +9,7 @@
   <!--
   <arg name="world" value="worlds/empty.world"/>
   -->
-  <arg name="world" default="$(find simulation)/worlds/square_building.world"/> <!-- planning_project.world"/ -->
+  <arg name="world" default="$(find simulation)/worlds/garage.world"/> <!-- planning_project.world"/ -->
   
   <arg name="sdf" default="$(find simulation)/models/uav/uav.sdf"/>
   <arg name="pluginlists_yaml" default="$(find simulation)/config/px4_pluginlists.yaml" />
