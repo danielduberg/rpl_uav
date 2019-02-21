@@ -98,7 +98,7 @@
         </link>
       </model>
       <model name='square_building'>
-        <pose frame=''>-6.8037 4.62081 0 0 -0 0</pose>
+        <pose frame=''>-7 4.5 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='Wall_4'>
           <pose frame=''>-16.9787 4.62081 0 0 0 -1.5708</pose>
