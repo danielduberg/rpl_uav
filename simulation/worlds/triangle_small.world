@@ -1575,5 +1575,89 @@
       </link>
       <static>1</static>
     </model>
+
+    <model name='router_0'>
+      <pose frame=''>0 1 0 0 0 0</pose>
+      <link name='router_0'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <collision name='router_0_Collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+        </collision>
+        <visual name='router_0_Visual'>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+      </link>
+
+      <plugin name="router_0" filename="librouter.so">
+        <robotNamespace></robotNamespace>
+        <topicName>router</topicName>
+        <updateRate>10.0</updateRate>
+        <range>10</range>
+      </plugin>
+
+      <static>1</static>
+    </model>
+
+    <model name='router_1'>
+      <pose frame=''>1 1 0 0 0 0</pose>
+      <link name='router_1'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <collision name='router_1_Collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+        </collision>
+        <visual name='router_1_Visual'>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+      </link>
+
+      <plugin name="router_1" filename="librouter.so">
+        <robotNamespace></robotNamespace>
+        <topicName>router</topicName>
+        <updateRate>10.0</updateRate>
+        <range>10</range>
+      </plugin>
+
+      <static>1</static>
+    </model>
   </world>
 </sdf>

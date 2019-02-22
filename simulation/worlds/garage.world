@@ -83,10 +83,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>452 793000000</sim_time>
-      <real_time>232 546063263</real_time>
-      <wall_time>1550754799 364367607</wall_time>
-      <iterations>115337</iterations>
+      <sim_time>529 251000000</sim_time>
+      <real_time>77 437023551</real_time>
+      <wall_time>1550842670 189026605</wall_time>
+      <iterations>38229</iterations>
       <model name='garage'>
         <pose frame=''>-10 -3 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -285,13 +285,53 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='router'>
+        <pose frame=''>-9.45421 -2.53462 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='router'>
+          <pose frame=''>-9.45421 -2.53462 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='router_0'>
+        <pose frame=''>-9.26742 29.9073 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='router'>
+          <pose frame=''>-9.26742 29.9073 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='router_1'>
+        <pose frame=''>23.2973 29.7449 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='router'>
+          <pose frame=''>23.2973 29.7449 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='router_2'>
+        <pose frame=''>22.9929 -1.89837 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='router'>
+          <pose frame=''>22.9929 -1.89837 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <light name='sun'>
         <pose frame=''>0 0 1000 0 -0 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-7.28609 -3.72212 24.5359 0 1.1218 0.943601</pose>
+        <pose frame=''>18.9371 13.5215 113.35 -4.5e-05 1.5698 1.65557</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -1765,6 +1805,226 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+      <static>1</static>
+    </model>
+    <model name='router'>
+      <pose frame=''>-9.45421 -2.53462 0 0 -0 0</pose>
+      <link name='router'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='router_Collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='router_Visual'>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='router' filename='librouter.so'>
+        <robotNamespace/>
+        <topicName>router</topicName>
+        <updateRate>10.0</updateRate>
+        <range>17</range>
+      </plugin>
+      <static>1</static>
+    </model>
+    <model name='router_0'>
+      <pose frame=''>-9.26742 29.9073 0 0 -0 0</pose>
+      <link name='router'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='router_Collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='router_Visual'>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='router' filename='librouter.so'>
+        <robotNamespace/>
+        <topicName>router</topicName>
+        <updateRate>10.0</updateRate>
+        <range>17</range>
+      </plugin>
+      <static>1</static>
+    </model>
+    <model name='router_1'>
+      <pose frame=''>23.2973 29.7449 0 0 -0 0</pose>
+      <link name='router'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='router_Collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='router_Visual'>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='router' filename='librouter.so'>
+        <robotNamespace/>
+        <topicName>router</topicName>
+        <updateRate>10.0</updateRate>
+        <range>17</range>
+      </plugin>
+      <static>1</static>
+    </model>
+    <model name='router_2'>
+      <pose frame=''>22.9929 -1.89837 0 0 -0 0</pose>
+      <link name='router'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='router_Collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='router_Visual'>
+          <pose frame=''>0 0 0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='router' filename='librouter.so'>
+        <robotNamespace/>
+        <topicName>router</topicName>
+        <updateRate>10.0</updateRate>
+        <range>17</range>
+      </plugin>
       <static>1</static>
     </model>
   </world>
