@@ -3,17 +3,9 @@
 <launch>    
     <arg name="enable_mocap" default="true" />
 
-    <arg name="uav" default="$(env USER)" />
-    
-    <group if="$(eval uav == 'ribbit')">
-        <arg name="fcu_device" default="/dev/serial/by-id/usb-FTDI_TTL232R-3V3_FT97O9G7-if00-port0" />
-        <arg name="tgt_system" default="12" />
-    </group>
-
-    <group if="$(eval uav == 'fugu')">
-        <arg name="fcu_device" default="/dev/serial/by-id/usb-FTDI_TTL232R-3V3_FT97OAZ4-if00-port0"/>
-        <arg name="tgt_system" default="13" />
-    </group>
+    <arg name="uav" default="ribbitV2" />
+    <arg name="fcu_device" default="/dev/serial/by-id/usb-FTDI_TTL232R_FT97WSH4-if00-port0" />
+    <arg name="tgt_system" default="12" />
     
     <arg name="fcu_baud" default="921600" />
     <arg name="fcu_url" default="$(arg fcu_device):$(arg fcu_baud)" />
@@ -38,7 +30,9 @@
       <rosparam file="$(arg mocap_config_file)" command="load" />
     </node>
 
+    <!--
     <param name="robot_description" textfile="$(find rpl)/urdf/$(arg uav).urdf" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-
+    -->
+    
 </launch>

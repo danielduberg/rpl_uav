@@ -9,9 +9,9 @@
   <!--
   <arg name="world" value="worlds/empty.world"/>
   -->
-  <arg name="world" default="$(find simulation)/worlds/aep_office.world"/> <!-- aep_apartment, aep_maze, aep_office, garage, office, power_plant, empty_room_big -->
+  <arg name="world" default="$(find simulation)/worlds/rpl_floor_6.world"/> <!-- aep_apartment, aep_maze, aep_office, garage, office, power_plant, empty_room_big -->
   
-  <arg name="sdf" default="$(find simulation)/models/uav/uav.sdf"/>
+  <arg name="sdf" default="$(find simulation)/models/uav_quad/model.sdf"/>
   <arg name="pluginlists_yaml" default="$(find simulation)/config/px4_pluginlists.yaml" />
   <arg name="config_yaml" default="$(find simulation)/config/px4_config.yaml" />
 
@@ -39,8 +39,6 @@
     <arg name="fcu_protocol" default="v2.0" />
     <arg name="respawn_mavros" default="false"/>
 
-    <arg name="rcS" default="$(find simulation)/config/iris" />
-
     <!-- PX4 configs -->
     <arg name="interactive" default="true"/>
     <!-- PX4 SITL and Gazebo -->
@@ -60,7 +58,6 @@
         <arg name="verbose" value="$(arg verbose)"/>
         <arg name="paused" value="$(arg paused)"/>
         <arg name="respawn_gazebo" value="$(arg respawn_gazebo)"/>
-        <arg name="rcS" value="$(arg rcS)" />
     </include>
     <!-- MAVROS -->
     <include file="$(find mavros)/launch/node.launch">
