@@ -72,4 +72,7 @@
       <arg name="fcu_protocol" value="$(arg fcu_protocol)" />
       <arg name="respawn_mavros" default="$(arg respawn_mavros)" />
     </include>
+
+    <param name="robot_description" textfile="$(find simulation)/urdf/simulation.urdf" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 </launch>
