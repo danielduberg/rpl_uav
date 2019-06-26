@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<!--
+
+Gazebo Multirotor Definition File
+Author: James Jackson
+
+-->
+
+<robot name="multirotor" 
+  xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Properties -->
+  <xacro:arg name="mav_name" default="multirotor"/>
+  <xacro:arg name="color" default="White"/>
+
+  <xacro:property name="namespace" value="$(arg mav_name)" />
+  <xacro:property name="use_mesh_file" value="true" />
+  <xacro:property name="mesh_file" value="model://quadrotor/meshes/quadrotor_base.dae" />
+  <xacro:property name="mass" value="2.856" />
+  <xacro:property name="body_width" value="0.505" />
+  <xacro:property name="body_height" value="0.1" />
+  <xacro:property name="body_inertia">
+    <inertia ixx="0.07" ixy="0.0" ixz="0.0" iyy="0.08" iyz="0.0" izz="0.12" />
+  </xacro:property>
+  <xacro:property name="color" value="$(arg color)" />
+
+  <!-- *********************** GAZEBO ROBOT DEFINITION ******************* -->
+  <link name="${namespace}/base_link">
+    <inertial>
+      <!-- [kg] -->
+      <mass value="${mass}" />
+      <origin xyz="0 0 0" />
+      <xacro:insert_block name="body_inertia" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <xacro:if value="${use_mesh_file}">
+          <mesh filename="${mesh_file}" scale="1 1 1" />
+        </xacro:if>
+        <xacro:unless value="${use_mesh_file}">
+          <cylinder length="${body_height}" radius="${body_width}"/>
+        </xacro:unless>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="${body_height}" radius="${body_width}"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${namespace}/rgbd_link">
+    <gravity>0</gravity>
+    <kinematic>0</kinematic>
+
+    <visual name="visual">
+      <geometry>
+        <mesh filename="model://kinect/meshes/kinect.dae" scale="1 1 1" />
+      </geometry>
+    </visual>
+
+    <inertial>
+      <!-- [kg] -->
+      <mass value="0.05" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.07" ixy="0.0" ixz="0.0" iyy="0.08" iyz="0.0" izz="0.12" />
+    </inertial>
+  </link>
+
+  <gazebo reference="${namespace}/rgbd_link">
+    <sensor type="depth" name="rgbd">
+      <always_on>1</always_on>
+      <visualize>false</visualize>
+      <update_rate>6.0</update_rate>
+      <camera>
+        <horizontal_fov>2.00712864</horizontal_fov>
+        <image>
+          <width>424</width>
+          <height>240</height>
+          <format>R8G8B8</format>
+        </image>
+        <depth_camera>
+
+        </depth_camera>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+      </camera>
+      <plugin name="${namespace}_rgbd_controller" filename="libgazebo_ros_depth_camera.so">        <!-- libgazebo_ros_depth_camera.so -->
+        <alwaysOn>true</alwaysOn>
+        <updateRate>6.0</updateRate>
+        <cameraName>camera</cameraName>
+        <frameName>/${namespace}_rgbd_link</frameName>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <pointCloudTopicName>depth/points</pointCloudTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudCutoff>0.1</pointCloudCutoff>
+        <pointCloudCutoffMax>7.0</pointCloudCutoffMax>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <CxPrime>0.0</CxPrime>
+        <Cx>0.0</Cx>
+        <Cy>0.0</Cy>
+        <focalLength>0.0</focalLength>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <joint name='${namespace}/rgbd_joint' type='fixed'>
+    <child link="${namespace}/rgbd_link" />
+    <parent link="${namespace}/base_link" />
+    <origin xyz="0 0 ${body_height/2}" />
+  </joint>
+
+  <gazebo reference="${namespace}/base_link">
+    <material>Gazebo/${color}</material>
+  </gazebo>
+
+  <!-- ROSflight SIL Plugin -->
+  <xacro:include filename="$(find rosflight_sim)/xacro/rosflight_sil.xacro"/>
+  <xacro:generic_multirotor namespace="${namespace}" parent_link="${namespace}/base_link"/>
+
+</robot>
