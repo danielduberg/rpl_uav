@@ -471,14 +471,14 @@
       <robotNamespace/>
       <linkName>/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
-      <gyroscopeNoiseDensity>0</gyroscopeNoiseDensity>
-      <gyroscopeRandomWalk>0</gyroscopeRandomWalk>
-      <gyroscopeBiasCorrelationTime>1.0e-09</gyroscopeBiasCorrelationTime>
-      <gyroscopeTurnOnBiasSigma>1.0e-09</gyroscopeTurnOnBiasSigma>
-      <accelerometerNoiseDensity>0</accelerometerNoiseDensity>
-      <accelerometerRandomWalk>0</accelerometerRandomWalk>
-      <accelerometerBiasCorrelationTime>1.0e-09</accelerometerBiasCorrelationTime>
-      <accelerometerTurnOnBiasSigma>1.0e-09</accelerometerTurnOnBiasSigma>
+      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
     </plugin>
 	
 	<!--
