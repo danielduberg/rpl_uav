@@ -73,6 +73,6 @@
       <arg name="respawn_mavros" default="$(arg respawn_mavros)" />
     </include>
 
-    <param name="robot_description" textfile="$(find simulation)/urdf/simulation.urdf" />
+    <param name="robot_description" textfile="$(find simulation)/urdf/model.urdf" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 </launch>
