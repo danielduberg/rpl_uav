@@ -7,28 +7,28 @@
     <axis xyz="1 0 0"/>
     <limit effort="0.0" lower="0.0" upper="0.0" velocity="0.0"/>
   </joint>
-  <joint name="rotor_0_joint" type="fixed">
+  <joint name="rotor_0_joint" type="revolute">
     <parent link="base_link"/>
     <child link="rotor_0"/>
     <origin rpy="0 0 0" xyz="0.13  -0.22   0.023"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
   </joint>
-  <joint name="rotor_1_joint" type="fixed">
+  <joint name="rotor_1_joint" type="revolute">
     <parent link="base_link"/>
     <child link="rotor_1"/>
     <origin rpy="0 0 0" xyz="-0.13   0.2    0.023"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
   </joint>
-  <joint name="rotor_2_joint" type="fixed">
+  <joint name="rotor_2_joint" type="revolute">
     <parent link="base_link"/>
     <child link="rotor_2"/>
     <origin rpy="0 0 0" xyz="0.13  0.22  0.023"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
   </joint>
-  <joint name="rotor_3_joint" type="fixed">
+  <joint name="rotor_3_joint" type="revolute">
     <parent link="base_link"/>
     <child link="rotor_3"/>
     <origin rpy="0 0 0" xyz="-0.13  -0.2    0.023"/>
@@ -84,7 +84,7 @@
     <visual name="rotor_0_visual">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://px4/Tools/sitl_gazebo/models/plane/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/standard_vtol/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/tiltrotor/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/tailsitter/meshes/iris_prop_ccw.dae" scale="0.1 0.1 0.1"/>
+        <mesh filename="package://px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_ccw.dae" scale="1 1 1"/>
       </geometry>
     </visual>
   </link>
@@ -97,7 +97,7 @@
     <visual name="rotor_1_visual">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://px4/Tools/sitl_gazebo/models/plane/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/standard_vtol/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/tiltrotor/meshes/iris_prop_ccw.dae OR px4/Tools/sitl_gazebo/models/tailsitter/meshes/iris_prop_ccw.dae" scale="0.1 0.1 0.1"/>
+        <mesh filename="package://px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_ccw.dae" scale="1 1 1"/>
       </geometry>
     </visual>
   </link>
@@ -110,7 +110,7 @@
     <visual name="rotor_2_visual">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://px4/Tools/sitl_gazebo/models/plane/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/standard_vtol/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/tiltrotor/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/tailsitter/meshes/iris_prop_cw.dae" scale="0.1 0.1 0.1"/>
+        <mesh filename="package://px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_cw.dae" scale="1 1 1"/>
       </geometry>
     </visual>
   </link>
@@ -123,7 +123,7 @@
     <visual name="rotor_3_visual">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://px4/Tools/sitl_gazebo/models/plane/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/standard_vtol/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/tiltrotor/meshes/iris_prop_cw.dae OR px4/Tools/sitl_gazebo/models/tailsitter/meshes/iris_prop_cw.dae" scale="0.1 0.1 0.1"/>
+        <mesh filename="package://px4/Tools/sitl_gazebo/models/rotors_description/meshes/iris_prop_cw.dae" scale="1 1 1"/>
       </geometry>
     </visual>
   </link>
@@ -136,7 +136,7 @@
     <visual name="visual">
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://PATHTOMESHES/meshes/kinect.dae" scale="1.0 1.0 1.0"/>
+        <mesh filename="package://simulation/urdf/meshes/r200/r200.dae" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>

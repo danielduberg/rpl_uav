@@ -1,1 +1,0 @@
-https://github.com/beltransen/velo2cam_gazebo
