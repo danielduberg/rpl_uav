@@ -9,7 +9,7 @@
   <!--
   <arg name="world" value="worlds/empty.world"/>
   -->
-  <arg name="world" default="$(find simulation)/worlds/power_plant.world"/>
+  <arg name="world" default="$(find simulation)/worlds/aep_office.world"/>
   <!-- aep_office, aep_apartment, aep_maze, garage, office, power_plant, empty_room_big -->
 
   <arg name="sdf" default="$(find simulation)/models/uav_quad/model.sdf"/>
