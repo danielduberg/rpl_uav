@@ -9,7 +9,7 @@
   <!--
   <arg name="world" value="worlds/empty.world"/>
   -->
-  <arg name="world" default="$(find simulation)/worlds/aep_office.world"/>
+  <arg name="world" default="$(find simulation)/worlds/ufomap_eval.world"/>
   <!-- aep_office, aep_apartment, aep_maze, garage, office, power_plant, empty_room_big -->
 
   <arg name="sdf" default="$(find simulation)/models/uav_quad/model.sdf"/>
@@ -22,7 +22,7 @@
   <!-- vehicle pose -->
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
-  <arg name="z" default="0"/>
+  <arg name="z" default="0.5"/>
   <arg name="R" default="0"/>
   <arg name="P" default="0"/>
   <arg name="Y" default="0"/>
