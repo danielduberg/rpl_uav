@@ -628,5 +628,16 @@
       <child>teraranger_link</child>
       <parent>base_link</parent>
     </joint>
+    
+    <plugin name="p3d_controller" filename="libgazebo_ros_p3d.so">
+      <robotNamespace></robotNamespace>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1000.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>base_link_ground_truth</topicName>
+      <frameName>map</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets> <!-- option to initialize odometry for fake localization-->
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
   </model>
 </sdf>
