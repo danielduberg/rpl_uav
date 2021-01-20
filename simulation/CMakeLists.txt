@@ -9,6 +9,7 @@ add_compile_options(-std=c++17)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
+  nav_msgs
   roscpp
   tf2
   tf2_geometry_msgs
@@ -136,6 +137,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(stabilized_transform_publisher_node src/stabilized_transform_publisher_node.cpp)
+add_executable(ground_truth_tf_broadcaster_node src/ground_truth_tf_broadcaster.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -146,10 +148,14 @@ add_executable(stabilized_transform_publisher_node src/stabilized_transform_publ
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(stabilized_transform_publisher_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(ground_truth_tf_broadcaster_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(stabilized_transform_publisher_node
   ${catkin_LIBRARIES}
+)
+target_link_libraries(ground_truth_tf_broadcaster_node
+${catkin_LIBRARIES}
 )
 
 #############

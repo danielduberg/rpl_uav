@@ -6,6 +6,6 @@ plugin_blacklist:
 - vibration
 - rangefinder
 
-plugin_whitelist: []
+# plugin_whitelist: []
 # 'sys_*'
 

@@ -48,6 +48,7 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
   <depend>roscpp</depend>
   <depend>tf2</depend>
   <depend>tf2_geometry_msgs</depend>
