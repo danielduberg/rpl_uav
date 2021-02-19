@@ -4,4 +4,6 @@
   <node pkg="rosservice" type="rosservice" name="arm_uav" args="call --wait /mavros/cmd/arming true" />
 
   <node pkg="rosservice" type="rosservice" name="offboard_uav" args="call --wait /mavros/set_mode 0 'offboard'" />
+
+  <node pkg="rosservice" type="rosservice" name="push_px4_parameters" args="call --wait /mavros/param/push '{}'" />
 </launch>

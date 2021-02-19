@@ -9,6 +9,7 @@
 
 std::string map_frame_id;
 std::string stabililzed_frame_id;
+std::string footprint_frame_id;
 std::string robot_frame_id;
 
 void odomCallback(nav_msgs::Odometry::ConstPtr const &odom)
@@ -18,27 +19,37 @@ void odomCallback(nav_msgs::Odometry::ConstPtr const &odom)
 	geometry_msgs::TransformStamped transform;
 	transform.header = odom->header;
 	transform.header.frame_id = map_frame_id;
-	transform.child_frame_id = stabililzed_frame_id;
+	transform.child_frame_id = footprint_frame_id;
 	transform.transform.translation.x = odom->pose.pose.position.x;
 	transform.transform.translation.y = odom->pose.pose.position.y;
-	transform.transform.translation.z = odom->pose.pose.position.z;
+	transform.transform.translation.z = 0.0;
   // TODO: Figure out if something below can work
   // tf2::convert(pose.pose.position, transform.transform.translation); 
   tf2::Quaternion q;
   q.setRPY(0, 0, tf2::getYaw(odom->pose.pose.orientation));
   tf2::convert(q, transform.transform.rotation);
 
-  geometry_msgs::TransformStamped transform_2;
-  transform_2.header.stamp = transform.header.stamp;
-  transform_2.header.frame_id = stabililzed_frame_id;
-  transform_2.child_frame_id = robot_frame_id;
+  geometry_msgs::TransformStamped transform_2 = transform;
+	transform_2.header.frame_id = footprint_frame_id;
+	transform_2.child_frame_id = stabililzed_frame_id;
+	transform_2.transform.translation.x = 0.0;
+	transform_2.transform.translation.y = 0.0;
+	transform_2.transform.translation.z = odom->pose.pose.position.z;
+  q.setRPY(0, 0, 0);
+  tf2::convert(q, transform_2.transform.rotation);
+
+  geometry_msgs::TransformStamped transform_3;
+  transform_3.header.stamp = transform.header.stamp;
+  transform_3.header.frame_id = stabililzed_frame_id;
+  transform_3.child_frame_id = robot_frame_id;
   double roll, pitch, yaw;
   tf2::getEulerYPR(odom->pose.pose.orientation, yaw, pitch, roll);
   q.setRPY(roll, pitch, 0);
-  tf2::convert(q, transform_2.transform.rotation);
+  tf2::convert(q, transform_3.transform.rotation);
 
   br.sendTransform(transform);
   br.sendTransform(transform_2);
+  br.sendTransform(transform_3);
 }
 
 int main(int argc, char** argv)
@@ -50,6 +61,7 @@ int main(int argc, char** argv)
 
 	map_frame_id = nh_priv.param<std::string>("map_frame_id", "map");
   stabililzed_frame_id = nh_priv.param<std::string>("stabilized_frame_id", "base_stabilized_link");
+  footprint_frame_id = nh_priv.param<std::string>("footprint_frame_id", "base_footprint_link");
   robot_frame_id = nh_priv.param<std::string>("robot_frame_id", "base_link");
 
 	ros::Subscriber sub = nh.subscribe("odom", 1, &odomCallback);

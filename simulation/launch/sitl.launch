@@ -14,12 +14,13 @@
 	<arg name="vehicle" default="rpl_uav_depth_camera"/>
 	<arg name="world" default="$(find simulation)/worlds/aep_office.world"/>
 	<arg name="sdf" default="$(find simulation)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
+  <!-- <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/iris/iris.sdf"/> -->
   <arg name="config_yaml" default="$(find simulation)/config/px4_config.yaml" />
 
 	<!-- gazebo configs -->
 	<arg name="gui" default="false"/>
 	<arg name="debug" default="false"/>
-	<arg name="verbose" default="false"/>
+	<arg name="verbose" default="true"/>
 	<arg name="paused" default="false"/>
 	<arg name="respawn_gazebo" default="false"/>
 	<!-- MAVROS configs -->
@@ -78,4 +79,6 @@
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen" required="false">
 		<!-- TODO -->
 	</node>
+
+	<rosparam command="load" file="$(find simulation)/config/iris.yaml" ns="/mavros/param" />
 </launch>
