@@ -120,10 +120,10 @@
       <pose frame=''>42.9128 -37.5282 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>168 829000000</sim_time>
-      <real_time>169 497478535</real_time>
-      <wall_time>1550668812 517937341</wall_time>
-      <iterations>168829</iterations>
+      <sim_time>0 0</sim_time>
+      <real_time>0 0</real_time>
+      <wall_time>0 0</wall_time>
+      <iterations>0</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
